@@ -1,4 +1,5 @@
 #CDS
+NOTE: CDS was created to be changed. It's here to bring programmers freedom but now it's too static. We need something even more flexibile - the way HTML6 is. Please help me make Internet a better place :D
 
 ##Cascading Definition Sheets
 
