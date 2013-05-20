@@ -1,34 +1,11 @@
-#CDS
-NOTE: CDS was created to be changed. It's here to bring programmers freedom but now it's too static. We need something even more flexibile - the way HTML6 is. Please help me make Internet a better place :D
+#CS
+NOTE: Work in progress!
 
-##Cascading Definition Sheets
+##Cascading Sheets
 
-### Section 1 - Introduction
-CDS is a new way to describe your HTML6-based markups. It merges DTD and CSS to one syntax.  
-With CDS you are able to:
-* style your documents
-* create your own namespaces
-* define childs and their parents
+### Section 1 - Intro
 
-CDS is really close to CSS, so if you are a webmaster, learning new syntax will take a few _minutes_.
-
-If you don't know CSS, you will need to learn the basics:
-* simple sheet consists of two parts:
- * the selectors
- * the rules
-* selectors say what element we want to describe
-* rules are the description itself
-
-The selector always comes first, rules come after. All the rules are closed with curly brackets.
-```css
-some selector {
- rule: value;
- second-rule: next-value;
- foo: bar;
-}
-```
-
-Comments in CDS have to begin with `/*` and end with `*/`, like this:
+Comments in CS have to begin with `/*` and end with `*/`, like this:
 ```css
 /* This is a comment */
 ```
