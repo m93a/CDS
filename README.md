@@ -78,3 +78,7 @@ At media rule is used to define responsive styles or print versions. Detailed sp
  font-family: "Courier New";
 }
 ```
+
+### Section 4 - Missing features
+Outline border
+Placeholder styling
