@@ -82,4 +82,7 @@ At media rule is used to define responsive styles or print versions. Detailed sp
 ### Section 4 - Missing features
 Outline border
 Placeholder styling
+JS Event support (`:event(begin,end)`)
 User defined styles (eg.: User defines his favourite colours in browser - how to use these colours in cs)
+Transitions between pages
+More 3D support for our websites
