@@ -5,14 +5,14 @@ NOTE: Work in progress!
 
 ### Section 1 - Intro
 
-Comments in CS have to begin with `/*` and end with `*/`, like this:
+Comments in cs have to begin with `/*` and end with `*/`, like this:
 ```css
 /* This is a comment */
 ```
 Comments are never parsed - they are just for you.
 
 ### Section 2 - Selectors
-NOTE: Unlike CSS, in CDS space has no special meaning, descendant selector is now `>>`.
+NOTE: Unlike CSS, in cs space has no special meaning, descendant selector is now `>>`.
 All names (tag names, namespaces, classes...) has to be in range `[^ .#:>!~*,]`.
 
 #### Element selectors
@@ -52,10 +52,10 @@ Meaning: An element that has attribute "foo" exactly equal to "bar".
 
 ### Section 3 - At Rules
 In CDS there are some special rules beginning with the "@" char.  
-Here's the list of CDS's at rules:
+Here's the list of cs's at rules:
 
 #### @import
-At import rule lets you load an external CSS or CDS file.
+At import rule lets you load an external cs (or css) file.
 ```css
 /* Syntax */
 @import url("path/to/a/file.css");
@@ -82,3 +82,4 @@ At media rule is used to define responsive styles or print versions. Detailed sp
 ### Section 4 - Missing features
 Outline border
 Placeholder styling
+User defined styles (eg.: User defines his favourite colours in browser - how to use these colours in cs)
