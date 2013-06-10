@@ -13,7 +13,8 @@ Comments are never parsed - they are just for you.
 
 ### Section 2 - Selectors
 NOTE: Unlike CSS, in cs space has no special meaning, descendant selector is now `>>`.
-All names (tag names, namespaces, classes...) has to be in range `[^ .#:>!~*,]`.
+
+All names (tag names, namespaces, classes...) has to be in range `[^ .#:={}<>"'!~*;,\/|\s]`.
 
 #### Element selectors
 These can be combined just by writing them consecutively (with or without spaces), AND rule is applied on them.
@@ -49,6 +50,14 @@ NOTE: This selector is not equal to CSS `[foo=bar]` selector, do not confuse!
 Pattern: `[foo==bar]` or `[foo=="bar"]`  
 Meaning: An element that has attribute "foo" exactly equal to "bar".  
 
+**Has rule selector**
+Pattern: `{float}`
+Meaning: An element, which has a non-default cs rule "float".
+
+**Rule equality selector**
+Pattern: `{float=left}`  or `{float="left"}`
+Meaning: An element, which has a cs rule "float" with value equal to "left" (or which would have value equal to "left" if rules of this selector didn't exist).
+
 
 ### Section 3 - At Rules
 In CDS there are some special rules beginning with the "@" char.  
@@ -80,9 +89,9 @@ At media rule is used to define responsive styles or print versions. Detailed sp
 ```
 
 ### Section 4 - Missing features
-Outline border
-Placeholder styling
-JS Event support (`:event(begin,end)`)
-User defined styles (eg.: User defines his favourite colours in browser - how to use these colours in cs)
-Transitions between pages
-More 3D support for our websites
+Outline border  
+Placeholder styling  
+JS Event support (`:event(begin,end)`)  
+User defined styles (eg.: User defines his favourite colours in browser - how to use these colours in cs)  
+Transitions between pages  
+More 3D support for our websites  
