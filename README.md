@@ -89,6 +89,7 @@ At media rule is used to define responsive styles or print versions. Detailed sp
 ```
 
 ### Section 4 - Missing features
+Pseudoclasses :first and :last for first and last matches of the selector
 Outline border  
 Placeholder styling  
 JS Event support (`:event(begin,end)`)  
