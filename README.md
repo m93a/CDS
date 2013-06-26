@@ -21,11 +21,11 @@ These can be combined just by writing them consecutively (with or without spaces
 
 **Tag name selector**  
 Pattern: `E`  
-Meaning: An element of any namespace with tag name "E". Special tag name `*` means an element of any tag name.  
+Meaning: An element in default namespace (if no namespace defined, then in no namespace) with tag name "E". Special tag name `*` means an element of any tag name.  
 
 **Namespace selector**  
-Pattern: `ns:E`  
-Meaning: _Always followed by an Tag name selector._ An element with tag name "E" and namespace "ns". Special namespace `*` means an element that has namespace, empty namespace (like `:E`) means an element that hasn't namespace.  
+Pattern: `ns|E`  
+Meaning: _Always followed by an Tag name selector._ An element with tag name "E" and namespace "ns". Special namespace `*` means any/no namespace, empty namespace (like `|E` for a specific element or `|*` for any element) means an element that hasn't namespace.  
 
 **Class name selector**  
 Pattern: `.bold`  
@@ -51,12 +51,50 @@ Pattern: `[foo==bar]` or `[foo=="bar"]`
 Meaning: An element that has attribute "foo" exactly equal to "bar".  
 
 **Has rule selector**
-Pattern: `{float}`
-Meaning: An element, which has a non-default cs rule "float".
+Pattern: `{float}`  
+Meaning: An element, which has a non-default cs rule "float".  
 
 **Rule equality selector**
-Pattern: `{float=left}`  or `{float="left"}`
-Meaning: An element, which has a cs rule "float" with value equal to "left" (or which would have value equal to "left" if rules of this selector didn't exist).
+Pattern: `{float=left}`  or `{float="left"}`  
+Meaning: An element, which has a cs rule "float" with value equal to "left" (or which would have value equal to "left" if rules of this selector didn't exist).  
+
+#### Combinators
+**Child combinator**
+Pattern: `E1 > E2`  
+Meaning: Element "E2", which is a child of element "E1".  
+
+**Descendant combinator**
+Pattern: `E1 >> E2`  
+Meaning: Element "E2", which is contained somewhere in element "E1" ("E1" can be child of "E2" or child of its child or even child of its child of its child etc.).  
+
+**Descendant combinator with defined deepness**
+Pattern: `E1 >(n) E2`  
+Meaning: Element "E2" which is contained in element "E1" on the defined deepness level (n=1 means "E2" is a child of "E1", n=2 means "E2" is a child of a child of "E1" etc.).  
+
+**Descendant combinator with defined deepness range**
+Pattern: `E1 >(n1,n2) E2`  
+Meaning: Element "E2" which is contained in element "E1" on the deepness level "n >= n1" and "n <= n2".
+
+**Next-sibling combinator**
+Pattern: `E1 ~ E2`  
+Meaning: Elements "E1" and "E2" have the same parent and "E2" comes immediately after "E1" in the document tree.  
+NOTE: This selector is not equal to CSS `E1 ~ E2` selector, do not confuse!
+
+**Following-sibling combinator**
+Pattern: `E1 ~~ E2`  
+Meaning: Elements "E1" and "E2" have the same parent and "E2" comes (not necessarily immediately) after "E1" in the document tree.  
+
+**Following-sibling combinator with defined distance**
+Pattern: `E1 ~(n) E2`
+Meaning: Elements "E1" and "E2" have the same parent and "E2" is the "n"th element after "E1".
+
+**Following-sibling combinator with defined distance range**
+Pattern: `E1 ~(n1,n2) E2`
+Meaning: Elements "E1" and "E2" have the same parent and "E2" is between "n1 - 1"th and "n2 + 1"th elements (so "E2" can be `n1`th, `n1 + 1`th, `n1 + 2`th, ..., `n2`th element).
+
+**Reference combinator**
+Pattern: `E1 /attr/ E2`
+Meaning: Element "E2" which is referenced by attribute "attr" of "E1" element, attribute has to be ID, may (but doesn't have to) begin with the `#` sign.
 
 
 ### Section 3 - At Rules
@@ -89,10 +127,16 @@ At media rule is used to define responsive styles or print versions. Detailed sp
 ```
 
 ### Section 4 - Missing features
-Pseudoclasses :first and :last for first and last matches of the selector
-Outline border  
-Placeholder styling  
-JS Event support (`:event(begin,end)`)  
-User defined styles (eg.: User defines his favourite colours in browser - how to use these colours in cs)  
-Transitions between pages  
-More 3D support for our websites  
+General:
+* Nth everything (http://css-tricks.com/a-call-for-nth-everything/)
+* Pseudoclass :wrap to clean HTML of styling-only elements - eg. `parent >  (child1 ~ child2 ~ child3):wrap`
+* JS Event support (`:event(begin,end)`)
+
+Styling API:
+* Merge SVG and HTML styling
+* Outline radius
+* Image manipulation (masks, effects, etc.)
+* Placeholder styling
+* User defined styles (eg.: User defines his favourite colours in browser - how to use these colours in cs)
+* Transitions between pages
+* More 3D support for our websites
