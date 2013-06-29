@@ -135,6 +135,7 @@ General:
 Styling API:
 * Merge SVG and HTML styling
 * Outline radius
+* Background opacity
 * Image manipulation (masks, effects, etc.)
 * Placeholder styling
 * User defined styles (eg.: User defines his favourite colours in browser - how to use these colours in cs)
