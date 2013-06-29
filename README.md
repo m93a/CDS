@@ -50,51 +50,69 @@ NOTE: This selector is not equal to CSS `[foo=bar]` selector, do not confuse!
 Pattern: `[foo==bar]` or `[foo=="bar"]`  
 Meaning: An element that has attribute "foo" exactly equal to "bar".  
 
-**Has rule selector**
+**Has rule selector**  
 Pattern: `{float}`  
 Meaning: An element, which has a non-default cs rule "float".  
 
-**Rule equality selector**
+**Rule equality selector**  
 Pattern: `{float=left}`  or `{float="left"}`  
 Meaning: An element, which has a cs rule "float" with value equal to "left" (or which would have value equal to "left" if rules of this selector didn't exist).  
 
 #### Combinators
-**Child combinator**
+**Child combinator**  
 Pattern: `E1 > E2`  
 Meaning: Element "E2", which is a child of element "E1".  
 
-**Descendant combinator**
+**Descendant combinator**  
 Pattern: `E1 >> E2`  
 Meaning: Element "E2", which is contained somewhere in element "E1" ("E1" can be child of "E2" or child of its child or even child of its child of its child etc.).  
 
-**Descendant combinator with defined deepness**
+**Descendant combinator with defined deepness**  
 Pattern: `E1 >(n) E2`  
 Meaning: Element "E2" which is contained in element "E1" on the defined deepness level (n=1 means "E2" is a child of "E1", n=2 means "E2" is a child of a child of "E1" etc.).  
 
-**Descendant combinator with defined deepness range**
+**Descendant combinator with defined deepness range**  
 Pattern: `E1 >(n1,n2) E2`  
-Meaning: Element "E2" which is contained in element "E1" on the deepness level "n >= n1" and "n <= n2".
+Meaning: Element "E2" which is contained in element "E1" on the deepness level "n >= n1" and "n <= n2".  
 
-**Next-sibling combinator**
+**Next-sibling combinator**  
 Pattern: `E1 ~ E2`  
 Meaning: Elements "E1" and "E2" have the same parent and "E2" comes immediately after "E1" in the document tree.  
-NOTE: This selector is not equal to CSS `E1 ~ E2` selector, do not confuse!
+NOTE: This selector is not equal to CSS `E1 ~ E2` selector, do not confuse!  
 
-**Following-sibling combinator**
+**Following-sibling combinator**  
 Pattern: `E1 ~~ E2`  
 Meaning: Elements "E1" and "E2" have the same parent and "E2" comes (not necessarily immediately) after "E1" in the document tree.  
 
-**Following-sibling combinator with defined distance**
-Pattern: `E1 ~(n) E2`
-Meaning: Elements "E1" and "E2" have the same parent and "E2" is the "n"th element after "E1".
+**Following-sibling combinator with defined distance**  
+Pattern: `E1 ~(n) E2`  
+Meaning: Elements "E1" and "E2" have the same parent and "E2" is the "n"th element after "E1".  
 
-**Following-sibling combinator with defined distance range**
-Pattern: `E1 ~(n1,n2) E2`
-Meaning: Elements "E1" and "E2" have the same parent and "E2" is between "n1 - 1"th and "n2 + 1"th elements (so "E2" can be `n1`th, `n1 + 1`th, `n1 + 2`th, ..., `n2`th element).
+**Following-sibling combinator with defined distance range**  
+Pattern: `E1 ~(n1,n2) E2`  
+Meaning: Elements "E1" and "E2" have the same parent and "E2" is between "n1 - 1"th and "n2 + 1"th elements (so "E2" can be `n1`th, `n1 + 1`th, `n1 + 2`th, ..., `n2`th element).  
 
-**Reference combinator**
-Pattern: `E1 /attr/ E2`
-Meaning: Element "E2" which is referenced by attribute "attr" of "E1" element, attribute has to be ID, may (but doesn't have to) begin with the `#` sign.
+**Reference combinator**  
+Pattern: `E1 /attr/ E2`  
+Meaning: Element "E2" which is referenced by attribute "attr" of "E1" element, attribute has to be ID, may (but doesn't have to) begin with the `#` sign.  
+
+
+#### Pseudo-classes
+**Event pseudo-class**  
+Pattern: `E:event(start, end)`  
+Meaning: Element "E" that has run through event "start" but hasn't run through event "end" yet. After deactivating by "end" event, may be activated by "start" again. Multiple events may be used as "start" or "end" if separated by OR sign - `|`, eg.: `div:event(mouseover|touch,mouseout|keydown).  
+
+**Endless event pseudo-class**  
+Pattern: `E:event(start)`  
+Meaning: Element "E" that has run through event "start". Multiple "start" events may be used if separated by OR sign - `|`.  
+
+**One-time event pseudo-class**  
+Pattern: `E:event-once(start, end)`  
+Meaning: Element "E" that has run through event "start" but hasn't run through event "end" yet. After deactivating by "end" event, MAY NOT be activated by "start" again. Multiple "start" or "end" events may be used if separated by OR sign - `|`.  
+
+**One-time event pseudo-class with reset**  
+Pattern: `E:event-once(start, end, reset)`  
+Meaning: Element "E" that has run through event "start" but hasn't run through event "end" yet. After deactivating by "end" event, MAY NOT be activated by "start" UNTIL "reset" runs. Multiple "start", "end" or "reset" events may be used if separated by OR sign - `|`.  
 
 
 ### Section 3 - At Rules
@@ -129,8 +147,7 @@ At media rule is used to define responsive styles or print versions. Detailed sp
 ### Section 4 - Missing features
 General:
 * Nth everything (http://css-tricks.com/a-call-for-nth-everything/)
-* Pseudoclass :wrap to clean HTML of styling-only elements - eg. `parent >  (child1 ~ child2 ~ child3):wrap`
-* JS Event support (`:event(begin,end)`)
+* Pseudo-element :wrap to clean HTML of styling-only elements - eg. `parent >  (child1 ~ child2 ~ child3):wrap`
 
 Styling API:
 * Merge SVG and HTML styling
