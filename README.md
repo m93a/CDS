@@ -50,6 +50,8 @@ NOTE: This selector is not equal to CSS `[foo=bar]` selector, do not confuse!
 Pattern: `[foo==bar]` or `[foo=="bar"]`  
 Meaning: An element that has attribute "foo" exactly equal to "bar".  
 
+TODO: Add `[foo^="bar"]`, `[foo$="bar"]`, `[foo^=="bar"]`, `[foo$=="bar"]` ("^" for "beggins with" and "$" for "end with")
+
 **Has rule selector**  
 Pattern: `{float}`  
 Meaning: An element, which has a non-default cs rule "float".  
@@ -153,8 +155,9 @@ Styling API:
 * Merge SVG and HTML styling
 * Outline radius
 * Background opacity
-* Image manipulation (masks, effects, etc.)
+* Better multi-layer backgrounds
+* Image manipulation (masks, effects, `image-rendering` etc.)
 * Placeholder styling
 * User defined styles (eg.: User defines his favourite colours in browser - how to use these colours in cs)
 * Transitions between pages
-* More 3D support for our websites
+* More 3D support for our websites (+ 3D image settings)
