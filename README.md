@@ -150,10 +150,12 @@ At media rule is used to define responsive styles or print versions. Detailed sp
 General:
 * Nth everything (http://css-tricks.com/a-call-for-nth-everything/)
 * Pseudo-element :wrap to clean HTML of styling-only elements - eg. `parent >  (child1 ~ child2 ~ child3):wrap`
+* %of() function - eg. `height: 100%of(a>b{width})
 
 Styling API:
 * Merge SVG and HTML styling
 * Outline radius
+* Outer height and outer width
 * Background opacity
 * Better multi-layer backgrounds
 * Image manipulation (masks, effects, `image-rendering` etc.)
