@@ -163,3 +163,7 @@ Styling API:
 * User defined styles (eg.: User defines his favourite colours in browser - how to use these colours in cs)
 * Transitions between pages
 * More 3D support for our websites (+ 3D image settings)
+
+
+(c) by m93a, Apache 2.0
+http://www.apache.org/licenses/LICENSE-2.0
