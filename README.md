@@ -156,6 +156,7 @@ Styling API:
 * Merge SVG and HTML styling
 * Outline radius
 * Outer height and outer width
+* Adding a "bg" shortcut for "background"
 * Background opacity
 * Better multi-layer backgrounds
 * Image manipulation (masks, effects, `image-rendering` etc.)
